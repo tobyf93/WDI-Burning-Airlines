@@ -5,16 +5,19 @@ app.FlightView = Backbone.View.extend({
   el: '#flights',
 
   events: {
-    'click': 'showSeatView'
+    'click': 'showSeatsView'
   },
 
   render: function() {
     var flightViewTemplate = $('#flightViewTemplate').html();
-    this.$el.html(flightViewTemplate);
+    this.$el.append(flightViewTemplate);
+    console.log('rendering flight ' + this.model.get('id'));
   },
 
-  showSeatView: function () {
-    app.router.navigate('planes/1/flights/' + this.model.get('id'), true);
+
+
+  showSeatsView: function () {
+    app.router.navigate('planes/' + this.model.get('plane_id') + '/flights/' + this.model.get('id') + '/seats', true);
   }
 
 });

@@ -7,9 +7,9 @@ app.FlightListView = Backbone.View.extend({
     var flightListViewTemplate = $('#flightListViewTemplate').html();
     this.$el.html(flightListViewTemplate);
 
-    app.flightView = new app.FlightView();
-
-    app.flights.each(function() {
+    app.flights.each(function(flight) {
+      flight.plane_id = this.plane_id;
+      app.flightView = new app.FlightView({model: flight});
       app.flightView.render();
     });
   },
