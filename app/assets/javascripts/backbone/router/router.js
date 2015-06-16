@@ -8,7 +8,8 @@ app.Router = Backbone.Router.extend({
     'planes/:plane_id/flights': 'flights',
     'planes/:plane_id/flights/:id': 'flight',
     'planes/:plane_id/flights/:id/seats': 'seats',
-    'search': 'search'
+    'search': 'search',
+    'polling': 'polling'
   },
 
   planes: function(id) {
@@ -39,19 +40,29 @@ app.Router = Backbone.Router.extend({
   },
 
   seats: function(plane_id, id) {
-    console.log('ROUTE: flight(plane_id: ' + plane_id + ', id: ' + id + ', seats)')
+    console.log('ROUTE: flight(plane_id: ' + plane_id + ', id: ' + id + ', seats)');
+  },
+
+  polling: function() {
+    console.log('ROUTE: Polling demo');
+
+    app.reservations = new app.Reservations();
+    app.reservations.fetch();
+
+    app.pollingView = new app.PollingView();
+    app.pollingView.render();
   },
 
   search: function(plane_id) {
-    app.flights 
+    // app.flights 
 
 
-    $('#search_flights_form').click(function () {
+    // $('#search_flights_form').click(function () {
       
-    })
+    // })
 
 
-    $('#search_for_flights_button').text
+    // $('#search_for_flights_button').text
 
     // Select the text from the users input
     // And make a query to the db on 'destinations'
