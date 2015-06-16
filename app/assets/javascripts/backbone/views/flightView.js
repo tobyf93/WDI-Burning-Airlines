@@ -13,7 +13,6 @@ app.FlightView = Backbone.View.extend({
     var flightViewHTML = _.template(flightViewTemplate);
 
     var toAppend = this.$el.append(flightViewHTML(this.model.attributes));
-    console.log('rendering flight ' + this.model.get('id'));
     parentView.append(toAppend)
   },
 
