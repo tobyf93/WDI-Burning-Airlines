@@ -7,8 +7,8 @@ app.Router = Backbone.Router.extend({
     'planes/:id': 'plane',
     'planes/:plane_id/flights': 'flights',
     'planes/:plane_id/flights/:id': 'flight',
-    'planes/:plane_id/flights/:id/seats': 'seats'
-    '/search': 'search',
+    'planes/:plane_id/flights/:id/seats': 'seats',
+    'search': 'search'
   },
 
   planes: function(id) {
