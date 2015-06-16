@@ -43,7 +43,8 @@ Rails.application.routes.draw do
   resources :users
   root :to => 'pages#app'
 
-  get '/login' => 'session#new'
+  get '/signup' => 'pages#signup'
+  get '/login' => 'pages#login'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 end

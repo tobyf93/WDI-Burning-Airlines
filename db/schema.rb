@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616023200) do
+ActiveRecord::Schema.define(version: 20150616030441) do
 
   create_table "flights", force: :cascade do |t|
     t.string   "origin"
@@ -41,10 +41,10 @@ ActiveRecord::Schema.define(version: 20150616023200) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "password"
+    t.string   "password_digest"
     t.boolean  "admin"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "username"
   end
 
