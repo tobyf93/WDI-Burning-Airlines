@@ -1,39 +1,49 @@
-<h1>Burning MOFO Airlinez.</h1>
+<h1><i class="fa fa-plane"></i> Burning Airlines <i class="fa fa-plane"></i></h1>
 <p>This is where templates will go</p>
 
-
+<!-- Main App. -->
 <div id="mainApp"></div>
 
-<script id="appTemplate" type="text/template">
-  
+  <script id="appViewTemplate" type="text/template">  
+  </script>
+
+<!-- List of current Planes. -->
+<script id="planeListViewTemplate" type="text/template">
+    <h2>List of Planes:</h2>
+    <ul></ul>
 </script>
 
-
-<script id="planeList" type="text/template">
-    
-
+<!-- View of individual plane. -->
+<script id="planeView" type="text/template">
+    <h2>Individual Plane:</h2>
+    <ul></ul>
 </script>
 
-
-<script id="flightsListTemplate" type="text/template">
+<!-- List of current flights. -->
+<script id="flightListTemplate" type="text/template">
     <h2>List of Flights:</h2>
       <ul></ul>
 </script>
 
+<!-- View of individual flight. -->
+<script id="flightView" type="text/template">
+    <h2>Individual flight:</h2>
+    <ul></ul>
 
-<script id="flightsTemplate" type="text/template">
-  
-    <h2>Individual Flight Info: {{ flights }}</h2>
+</script>
+
+<!-- Flight Summary Template. -->
+<script id="flightSummaryViewTemplate" type="text/template">
+    <h2>Individual Flight Summary: {{ flights }}</h2>
       <ul>
         <li>Origin: {{ origin }}</li>
         <li>Destination: {{ destination }}</li>
         <li>Date: {{ date }}</li>
         <li>Plane: {{ plane }}</li>
       </ul>
-
 </script>
 
-
-
-
-<!-- BOOKING FLIGHTS FORM: -->
+<script id="seatsViewTemplate" type="text/template">
+    <h2>List of seats:</h2>
+    <ul></ul>
+</script>
