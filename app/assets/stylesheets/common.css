@@ -1,18 +1,14 @@
-
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
-
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 100;
-  padding-top: 60px;
-  padding-bottom: 40px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    padding-top: 60px;
+    padding-bottom: 40px;
 }
-
 
 ul {
     list-style-type: none;
     text-decoration: none;
-
 }
 
 li {
@@ -20,21 +16,19 @@ li {
     text-decoration: none;
 }
 
-
 h1 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 800;
-  font-style: italic;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-style: italic;
 }
 
 h3 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
-  font-style: italic;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-style: italic;
 }
-
-
 /* #### NAV #### */
+
 nav li {
     display: inline-block;
     text-decoration: none;
@@ -46,28 +40,30 @@ nav li {
     font-style: italic;
     font-size: 24px;
 }
-
-
-
+/* #### NAV #### ** Everything is rendered in here ** .*/
 
 #view {
-  max-width: 260px;
+    max-width: 260px;
+}
+/* #### GRID OF SEATS #### */
+
+.outer {
+    width: 420px;
+    height: 140px;
+    background-color: black;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+.inner {
+    float: left;
+    width: 65px;
+    height: 65px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    background-color: white;
+}
 
 /*### SIGN IN / LOGIN FORMS ### */
+
 .form-signin {
     max-width: 320px;
     padding: 12px;
@@ -128,4 +124,5 @@ nav li {
     border-color: initial;
     background-color: #383838;
 }
+
 
