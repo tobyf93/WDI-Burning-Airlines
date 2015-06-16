@@ -10,16 +10,25 @@
 <body>
 
 <nav class="nav"></nav>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="<%= root_path %>">BurningAirlines</a>
+      </div>
+         <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
 
+                <% if @current_user %>
 
+                  <li><%= link_to "Logout #{ @current_user.name }",login_path, :method => 'delete' %></li>
 
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">BurningAirlines</a>
+                <% else %>
+                  <li><%= link_to "Sign Up", signup_path %></li>
+                  <li><%= link_to "Login", login_path %></li>
+                  <% end %>
+            </ul>
+          </div>
     </div>
-  </div>
 </nav>
 
 
