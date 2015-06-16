@@ -5,8 +5,6 @@ app.PlaneView = Backbone.View.extend({
 
   render: function() {
     var planeViewTemplate = $('#planeViewTemplate').html();
-    this.$el.html(planeViewTemplate);
-
-    console.log(planeViewTemplate);
+    this.$el.append(planeViewTemplate);
   }
 });

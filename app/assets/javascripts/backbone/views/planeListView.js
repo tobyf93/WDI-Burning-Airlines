@@ -8,7 +8,11 @@ app.PlaneListView = Backbone.View.extend({
     this.$el.html(planeListViewTemplate);
 
     app.planeView = new app.PlaneView();
-    app.planeView.render();
+
+    // Don't leave this in
+    for (var i = 0; i < 5; i++) {
+      app.planeView.render();
+    }
   }
 });
 
