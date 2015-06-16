@@ -10,7 +10,8 @@ app.FlightView = Backbone.View.extend({
 
   render: function() {
     var flightViewTemplate = $('#flightViewTemplate').html();
-    this.$el.append(flightViewTemplate);
+    var flightViewHTML = _.template(flightViewTemplate);
+    this.$el.append(flightViewHTML(this.model.attributes));
     console.log('rendering flight ' + this.model.get('id'));
   },
 
