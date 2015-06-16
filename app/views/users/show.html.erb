@@ -15,5 +15,18 @@
   <%= @user.admin %>
 </p>
 
+<p>
+  <strong>Reservations:</strong>
+  <% i = 1 %>
+  <% @reservations.each do |rsvp| %>
+    <div><%= "Reservation #{i}: " %><% i += 1 %>
+      <td><%= "Row: #{rsvp.row}" %></td>
+      <td><%= "Col: #{rsvp.column}" %></td>
+      <td><%= link_to 'Edit', edit_reservation_path(rsvp) %></td>
+    </div>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'New Reservation', new_reservation_path %> |
 <%= link_to 'Back', users_path %>
