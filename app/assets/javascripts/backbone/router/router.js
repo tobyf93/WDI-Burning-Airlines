@@ -13,8 +13,6 @@ app.Router = Backbone.Router.extend({
   },
 
   planes: function(id) {
-    app.appView = new app.AppView();
-    app.appView.render();
     app.planeListView = new app.PlaneListView({plane_id: id});
     app.planeListView.render();
 
