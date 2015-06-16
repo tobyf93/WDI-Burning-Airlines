@@ -19,9 +19,9 @@ app.PlaneView = Backbone.View.extend({
 
   showFlights: function(event) {
     // event.stopPropagation()
-    console.log( this.model );
+    //console.log( this.model );
     // event.stopImmediatePropagation();
-    console.log('fire');
+    //console.log('fire');
     app.router.navigate('planes/' + this.model.get('id') + '/flights', true);
   }
 });

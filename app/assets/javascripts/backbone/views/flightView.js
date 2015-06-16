@@ -1,18 +1,20 @@
 var app = app || {};
 
 app.FlightView = Backbone.View.extend({
-
-  el: '#flights',
+  tagName: 'li',
+  className: "list-group-item",
 
   events: {
     'click': 'showSeatsView'
   },
 
-  render: function() {
+  render: function( parentView ) {
     var flightViewTemplate = $('#flightViewTemplate').html();
     var flightViewHTML = _.template(flightViewTemplate);
-    this.$el.append(flightViewHTML(this.model.attributes));
+
+    var toAppend = this.$el.append(flightViewHTML(this.model.attributes));
     console.log('rendering flight ' + this.model.get('id'));
+    parentView.append(toAppend)
   },
 
 
