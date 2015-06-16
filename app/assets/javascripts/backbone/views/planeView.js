@@ -11,10 +11,11 @@ app.PlaneView = Backbone.View.extend({
     var planeViewTemplate = $('#planeViewTemplate').html();
     var planeViewHTML = _.template(planeViewTemplate);
 
-    this.$el.append(planeViewHTML(this.model.attributes));
+    $('#planes').append(planeViewHTML(this.model.attributes));
   },
 
   showFlights: function() {
+    console.log('fire');
     app.router.navigate('planes/' + this.model.get('id') + '/flights', true);
   }
 });
