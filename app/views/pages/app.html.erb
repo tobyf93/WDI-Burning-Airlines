@@ -26,9 +26,12 @@
 </script>
 
 <!-- View of individual flight. -->
-<script id="flightView" type="text/template">
-    <h2>Individual flight:</h2>
-    <ul></ul>
+<script id="flightViewTemplate" type="text/template">
+  <div>
+    <li class="list-group-iem">From: {{ origin }}</li>
+    <li class="list-group-iem">To: {{ destination }}</li>
+    <li class="list-group-iem">Date Leaving: {{ date }}</li>
+  </div>
 </script>
 
 <!-- Flight Summary Template. -->
