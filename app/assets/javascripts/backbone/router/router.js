@@ -7,9 +7,8 @@ app.Router = Backbone.Router.extend({
     'planes/:id': 'plane',
     'planes/:plane_id/flights': 'flights',
     'planes/:plane_id/flights/:id': 'flight',
-    'planes/:plane_id/flights/:id/seats': 'seats'
-
-    // Considered as a bonus: '/search': 'search',
+    'planes/:plane_id/flights/:id/seats': 'seats',
+    'search': 'search'
   },
 
   planes: function(id) {
@@ -41,6 +40,23 @@ app.Router = Backbone.Router.extend({
 
   seats: function(plane_id, id) {
     console.log('ROUTE: flight(plane_id: ' + plane_id + ', id: ' + id + ', seats)')
+  },
+
+  search: function(plane_id) {
+    app.flights 
+
+
+    $('#search_flights_form').click(function () {
+      
+    })
+
+
+    $('#search_for_flights_button').text
+
+    // Select the text from the users input
+    // And make a query to the db on 'destinations'
+    // render a new view
+
   }
 
 });

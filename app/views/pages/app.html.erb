@@ -3,6 +3,8 @@
 <div id="mainApp" class="container"></div>
 
 <script id="appTemplate" type="text/template"> 
+  <%= text_field_tag 'search', nil, :autofocus => true, :placeholder => 'search for your final destination' %>
+  <%= button_tag 'search flights', :id => 'search_for_flights_button' %>
   <div id="view"></div>
 </script>
 
