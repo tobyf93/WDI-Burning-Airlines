@@ -14,6 +14,8 @@ app.Router = Backbone.Router.extend({
   planes: function() {
     app.appView = new app.AppView();
     app.appView.render();
+    app.planeListView = new app.PlaneListView();
+    app.planeListView.render();
 
     console.log('ROUTE: planes');
   },
