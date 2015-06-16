@@ -1,0 +1,131 @@
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+
+ul {
+    list-style-type: none;
+    text-decoration: none;
+
+}
+
+li {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+
+/* #### NAV #### */
+nav li {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.navbar-brand {
+    font-weight: 900;
+    font-style: italic;
+    font-size: 24px;
+}
+
+
+
+
+#view {
+  max-width: 260px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*### SIGN IN / LOGIN FORMS ### */
+.form-signin {
+    max-width: 320px;
+    padding: 12px;
+    margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: 8px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: -1px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-control:focus {
+    border-color: initial;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.btn-primary {
+    margin-top: 6px;
+    border-color: initial;
+    background-color: #020202;
+    font-size: 13px;
+    outline: none;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    border-color: initial;
+    background-color: #383838;
+}
+
