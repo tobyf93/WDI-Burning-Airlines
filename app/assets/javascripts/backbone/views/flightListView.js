@@ -2,22 +2,19 @@ var app = app || {};
 
 app.FlightListView = Backbone.View.extend({
 
-  el: '#flightListTemplate',
-
-  events: {
-    'click': 'showFlight'
-  },
+  el: '#view',
 
   render: function() {
+    console.log('rendering the flight list view')
     var flightListViewTemplate = $('#flightListViewTemplate').html();
     this.$el.html(flightListViewTemplate);
 
+    debugger;
     app.flightView = new app.FlightView();
-    app.flightView.render();
+
+    app.flights.each(function() {
+      app.flightView.render();
+    });
   },
-  
-  showFlight: function () {
-    app.router.navigate('planes/1/flights/' + this.model.get('id'), true);
-  }
 
 });

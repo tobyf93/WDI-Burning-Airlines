@@ -6,7 +6,8 @@ app.Router = Backbone.Router.extend({
     'planes': 'planes',
     'planes/:id': 'plane',
     'planes/:plane_id/flights': 'flights',
-    'planes/:plane_id/flights/:id': 'flight'
+    'planes/:plane_id/flights/:id': 'flight',
+    'planes/:plane_id/flights/:id/seats': 'seats'
 
     // Considered as a bonus: '/search': 'search',
   },
@@ -25,12 +26,21 @@ app.Router = Backbone.Router.extend({
   },
 
   flights: function(plane_id) {
-    app.flightListView = new app.FlightListView();
-    app.flightListView.render()
+    app.flights = new app.Flights();
+    app.flights.fetch().done(function() {
+      app.flightListView = new app.FlightListView();
+      app.flightListView.render()
+    });
+
     console.log('ROUTE: flights (plane_id: '+ plane_id + ')');
   },  
 
   flight: function(plane_id, id) {
     console.log('ROUTE: flight (plane_id: '+ plane_id + ', id: ' + id + ')');
+  },
+
+  seats: function(plane_id, id) {
+    console.log('ROUTE: flight(plane_id: ' + plane_id + ', id: ' + id + ', seats)')
   }
+
 });
