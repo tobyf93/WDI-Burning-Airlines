@@ -1,6 +1,7 @@
 var app = app || {};
 
 app.FlightListView = Backbone.View.extend({
+  
   el: '#view',
 
   render: function () {
