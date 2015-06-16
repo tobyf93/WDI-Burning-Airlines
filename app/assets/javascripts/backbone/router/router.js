@@ -25,6 +25,8 @@ app.Router = Backbone.Router.extend({
   },
 
   flights: function(plane_id) {
+    app.flightListView = new app.FlightListView();
+    app.flightListView.render()
     console.log('ROUTE: flights (plane_id: '+ plane_id + ')');
   },  
 
