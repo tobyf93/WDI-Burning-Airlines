@@ -12,10 +12,10 @@ app.Router = Backbone.Router.extend({
     // Considered as a bonus: '/search': 'search',
   },
 
-  planes: function() {
+  planes: function(id) {
     app.appView = new app.AppView();
     app.appView.render();
-    app.planeListView = new app.PlaneListView();
+    app.planeListView = new app.PlaneListView({plane_id: id});
     app.planeListView.render();
 
     console.log('ROUTE: planes');
