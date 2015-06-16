@@ -10,24 +10,24 @@
 <script id="planeListViewTemplate" type="text/template">
   <h3>Planes</h3>
 
-    <ul class="list-group">
-      </a>
-      <li class="list-group-item">Test Plane 1</li>
-      <li><a href="#" class="list-group-item">Test Plane 2</a></li>
-      <li><a href="#" class="list-group-item">Test Plane 3</a></li>
-    </ul>
+  <ul id="planes" class="list-group"></ul>
 </script>
 
 
 <!-- View of individual plane. -->
 <script id="planeViewTemplate" type="text/template">
-    <li><a href="">Plane Name</a> - something something something</li>
+    <li class="list-group-item">Test Plane 1</li>
 </script>
 
 <!-- List of current flights. -->
 <script id="flightListTemplate" type="text/template">
-    <h2>List of Flights:</h2>
-      <ul id="flights"></ul>
+  <h3>Flights</h3>
+    <ul id="flights" class="list-group">
+      </a>
+      <li><a href="#" class="list-group-item">FLIGHT 1</a></li>
+      <li><a href="#" class="list-group-item">FLIGHT 2</a></li>
+      <li><a href="#" class="list-group-item">FLIGHT 3</a></li>
+    </ul>
 </script>
 
 <!-- View of individual flight. -->
@@ -38,17 +38,13 @@
 </script>
 
 <!-- Flight Summary Template. -->
-<script id="flightSummaryViewTemplate" type="text/template">
+<script id="seatsViewTemplate" type="text/template">
     <h2>Individual Flight Summary: {{ flights }}</h2>
       <ul>
         <li>Origin: {{ origin }}</li>
         <li>Destination: {{ destination }}</li>
         <li>Date: {{ date }}</li>
-        <li>Plane: {{ plane }}</li>
+        <li>Seats: {{ seats }}</li>
+        <ul class="seats"></ul>
       </ul>
-</script>
-
-<script id="seatsViewTemplate" type="text/template">
-    <h2>List of seats:</h2>
-    <ul></ul>
 </script>
