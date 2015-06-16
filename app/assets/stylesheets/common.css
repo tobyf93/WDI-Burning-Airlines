@@ -47,16 +47,22 @@ nav li {
     font-size: 24px;
 }
 
-
-
-
+/* #### NAV #### ** Everything is rendered in here ** .*/
 #view {
   max-width: 260px;
 }
 
+/* #### GRID OF SEATS #### */
 
 
 
+
+
+
+      <div class="gridOfSeats">
+        <div class="seatOuter">
+          <div class="seatInner"></div>
+          <div class="seatInner"
 
 
 
