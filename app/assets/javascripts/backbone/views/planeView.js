@@ -1,20 +1,26 @@
 var app = app || {};
 
 app.PlaneView = Backbone.View.extend({
-  el: '#planes',
+  tagName: 'li',
+  className: "list-group-item",
 
   events: {
     'click': 'showFlights'
   },
 
-  render: function() {
+  render: function( parentView ) {
     var planeViewTemplate = $('#planeViewTemplate').html();
     var planeViewHTML = _.template(planeViewTemplate);
 
-    $('#planes').append(planeViewHTML(this.model.attributes));
+    var toAppend = this.$el.html(planeViewHTML(this.model.attributes));
+    // console.log(toAppend)
+    parentView.append(toAppend)
   },
 
-  showFlights: function() {
+  showFlights: function(event) {
+    // event.stopPropagation()
+    console.log( this.model );
+    // event.stopImmediatePropagation();
     console.log('fire');
     app.router.navigate('planes/' + this.model.get('id') + '/flights', true);
   }
