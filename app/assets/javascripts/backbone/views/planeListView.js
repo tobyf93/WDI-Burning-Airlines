@@ -7,9 +7,8 @@ app.PlaneListView = Backbone.View.extend({
     var planeListViewTemplate = $('#planeListViewTemplate').html();
     this.$el.html(planeListViewTemplate);
 
-    app.planeView = new app.PlaneView();
-
-    app.planes.each(function() {
+    app.planes.each(function(plane) {
+      app.planeView = new app.PlaneView({model: plane});
       app.planeView.render();
     });
   }
