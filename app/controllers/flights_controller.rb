@@ -4,7 +4,7 @@ class FlightsController < ApplicationController
   # GET /flights
   # GET /flights.json
   def index
-    @flights = Flight.all
+    @flights = Flight.where :plane_id => params[:plane_id]
   end
 
   # GET /flights/1
