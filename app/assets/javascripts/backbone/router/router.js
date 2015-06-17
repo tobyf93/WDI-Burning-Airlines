@@ -13,6 +13,8 @@ app.Router = Backbone.Router.extend({
   },
 
   planes: function(id) {
+    app.currentPoller = null;
+
     app.planeListView = new app.PlaneListView();
     app.planeListView.render();
 
@@ -20,10 +22,14 @@ app.Router = Backbone.Router.extend({
   },
 
   plane: function(id) {
+    app.currentPoller = null;
+
     console.log('ROUTE: plane (id: '+ id + ')');
   },
 
   flights: function(plane_id) {
+    app.currentPoller = null;
+
     app.flights = new app.Flights({plane_id: plane_id});
     app.flights.fetch({ 
       data: {
@@ -38,10 +44,14 @@ app.Router = Backbone.Router.extend({
   },  
 
   flight: function(plane_id, id) {
+    app.currentPoller = null;
+
     console.log('ROUTE: flight (plane_id: '+ plane_id + ', id: ' + id + ')');
   },
 
   reservations: function(plane_id, id) {
+    app.currentPoller = null;
+
     console.log('ROUTE: flight(plane_id: ' + plane_id + ', id: ' + id + ', reservations)');
     app.reservations = new app.Reservations({plane_id: plane_id, flight_id: id});
 
@@ -57,6 +67,8 @@ app.Router = Backbone.Router.extend({
   },
 
   polling: function() {
+    app.currentPoller = null;
+
     console.log('ROUTE: Polling demo');
 
     app.tobys = new app.Tobys();
@@ -71,6 +83,7 @@ app.Router = Backbone.Router.extend({
   },
 
   search: function(origin, destination) {
+    app.currentPoller = null;
     // debugger;
     //
     // var origin = origin.val();

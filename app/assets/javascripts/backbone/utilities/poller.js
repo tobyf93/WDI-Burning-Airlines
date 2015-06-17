@@ -24,9 +24,11 @@ app.Poller.prototype.start = function() {
 app.Poller.prototype.fetch = function() {
   console.log('POLL: Fetching data...');
 
-  app.currentPoller.collection.fetch({
-    success: app.currentPoller.onSuccess
-  });
+  if (app.currentPoller) {
+    app.currentPoller.collection.fetch({
+      success: app.currentPoller.onSuccess
+    });
+  }
 };
 
 app.Poller.prototype.onSuccess = function() {

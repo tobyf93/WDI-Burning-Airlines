@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   private
   def authenticate
     # session[:user] = nil
+    # raise 'hello'
     @current_user = User.find_by_id session[:user] if session[:user]
   end
 
