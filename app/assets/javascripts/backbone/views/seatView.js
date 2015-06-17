@@ -25,10 +25,11 @@ app.SeatView = Backbone.View.extend({
 
   makeReservation: function () {
     // console.log('making res on: ');
-    console.log(this);
     var co = this.model['column'];
     var ro = this.model['row'];
-    var numSelector = ( ( (ro - 1) * 10 ) + (co - 1) );
+
+    var dynamicRows = app.planes.get(this.model.plane_id).attributes.columns
+    var numSelector = ( ( (ro - 1) * dynamicRows ) + (co - 1) );
     var $clicked = $('.seatOuter').children()[numSelector];
     $($clicked).addClass('HasBeenClicked');
 
