@@ -45,7 +45,11 @@ app.Router = Backbone.Router.extend({
     console.log('ROUTE: Polling demo');
 
     app.tobys = new app.Tobys();
-    app.tobys.startLongPolling();
+    app.tobyPoller = new app.Poller({
+      collection: app.tobys,
+      seconds: 5
+    });
+    app.tobyPoller.start();
 
     app.pollingView = new app.PollingView();
     app.pollingView.render();
