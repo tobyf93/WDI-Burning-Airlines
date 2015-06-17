@@ -4,6 +4,7 @@ body {
     font-weight: 100;
     padding-top: 60px;
     padding-bottom: 40px;
+    height:100vh;
 }
 
 ul {
@@ -125,25 +126,30 @@ nav li {
     background-color: #383838;
 }
 
-
-
-
-
 /*### LISTS ### */
 
 .list-group-item{
     max-width: 320px;
-    font-size:12px;
+    font-size:14px;
     border-radius: 15px;
 }
 
 .list-group-item li {
     max-width: 320px;
-    font-size:12px;
+    font-size:13px;
     border-radius: 15px;
 }
 
+.modal-content {
+    max-width: 300px;
+    padding: 12px 12px 12px 12px;
+    text-align: center;
+    color: red;
+}
 
-
+.button-container-bottom {
+    position: fixed;
+    bottom: 0;
+}
 
 
