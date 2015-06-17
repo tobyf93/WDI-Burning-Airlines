@@ -7,9 +7,6 @@ app.SeatsView = Backbone.View.extend({
     var seatsViewTemplate = $('#seatsViewTemplate').html();
     this.$el.html(seatsViewTemplate);
 
-    // console.log(this.collection);
-    var view = this;
-
     var view = this;
     view.collection.each(function(reservation) {
       // Give reservation plane_id too
