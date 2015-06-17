@@ -49,8 +49,7 @@ app.Router = Backbone.Router.extend({
         app.seatsView.render();
       }
     });
-
-    app.pollReservations.start();
+    app.pollReservations.start();    
   },
 
   polling: function() {
