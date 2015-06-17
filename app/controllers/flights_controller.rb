@@ -41,6 +41,24 @@ class FlightsController < ApplicationController
         format.json { render json: @flight.errors, status: :unprocessable_entity }
       end
     end
+
+    rows = @flight.plane.rows
+    columns = @flight.plane.columns
+
+    row = 1
+    column = 1
+
+    for row in 1..rows
+      for column in 1..columns
+        @reservation = Reservation.new
+        @reservation.row = row
+        @reservation.column = column
+        @reservation.user_id = nil
+        @reservation.save
+        @flight.reservations << @reservation
+      end
+    end
+
   end
 
   # PATCH/PUT /flights/1
