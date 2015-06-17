@@ -4,7 +4,12 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.where :flight_id => params[:flight_id]
+    flight = @reservations[0].flight
+    plane = flight.plane
+    @columns = plane.columns
+    @rows = plane.rows
+    raise 'hello' 
   end
 
   # GET /reservations/1

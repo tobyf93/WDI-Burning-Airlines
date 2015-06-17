@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.FlightListView = Backbone.View.extend({
-  
+
   el: '#view',
 
   render: function () {
@@ -14,6 +14,6 @@ app.FlightListView = Backbone.View.extend({
       app.flightView.render( view.$el );
       // app.flightView.render();
     });
-  },
+  }
 
 });
