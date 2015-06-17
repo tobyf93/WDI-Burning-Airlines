@@ -22,12 +22,13 @@ app.Poller.prototype.start = function() {
 
 app.Poller.prototype.fetch = function() {
   console.log('POLL: Fetching data...');
-  app.currentPoller.onSuccess();
+
+  app.currentPoller.collection.fetch({
+    success: app.currentPoller.onSuccess
+  });
 };
 
 app.Poller.prototype.onSuccess = function() {
   console.log('POLL: Fetched!  (next fetch in ' + app.currentPoller.seconds + ' seconds)');
-
-  console.log(app.currentPoller.collection);
   setTimeout(app.currentPoller.fetch, app.currentPoller.seconds * 1000);
 };
