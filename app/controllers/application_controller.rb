@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   private
   def authenticate
     # session[:user] = nil
-    @current_user = User.find session[:user] if session[:user]
+    @current_user = User.find_by_id session[:user] if session[:user]
   end
 
 end

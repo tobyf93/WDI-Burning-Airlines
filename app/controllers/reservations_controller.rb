@@ -4,7 +4,12 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    flight_id = params[:flight_id]
+    @reservations = Reservation.where :flight_id => flight_id
+    flight = Flight.find_by :id => flight_id
+    plane = flight.plane
+    @columns = plane.columns
+    @rows = plane.rows
   end
 
   # GET /reservations/1
@@ -69,6 +74,6 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:row, :column, :user_id, :flight_id)
+      params.require(:reservation).permit(:row, :column, :user_id, :flight_id, :columns, :rows)
     end
 end

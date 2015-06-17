@@ -37,9 +37,8 @@ app.FlightView = Backbone.View.extend({
   },
 
 
-
   showSeatsView: function () {
-    app.router.navigate('planes/' + this.model.get('plane_id') + '/flights/' + this.model.get('id') + '/seats', true);
+    app.router.navigate('planes/' + this.model.get('plane_id') + '/flights/' + this.model.get('id') + '/reservations', true);
   }
 
 });

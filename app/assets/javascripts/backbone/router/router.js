@@ -7,8 +7,8 @@ app.Router = Backbone.Router.extend({
     'planes/:id': 'plane',
     'planes/:plane_id/flights': 'flights',
     'planes/:plane_id/flights/:id': 'flight',
-    'planes/:plane_id/flights/:id/seats': 'seats',
     'search/:origin/:destination': 'search',
+    'planes/:plane_id/flights/:id/reservations': 'reservations',
     'polling': 'polling'
   },
 
@@ -37,15 +37,26 @@ app.Router = Backbone.Router.extend({
     console.log('ROUTE: flight (plane_id: '+ plane_id + ', id: ' + id + ')');
   },
 
-  seats: function(plane_id, id) {
-    console.log('ROUTE: flight(plane_id: ' + plane_id + ', id: ' + id + ', seats)');
+  reservations: function(plane_id, id) {
+    console.log('ROUTE: flight(plane_id: ' + plane_id + ', id: ' + id + ', reservations)');
+    app.reservations = new app.Reservations({plane_id: plane_id, flight_id: id});
+    console.log(app.reservations);
+
+    app.reservations.fetch().done(function() {
+      app.seatsView = new app.SeatsView({collection: app.reservations});
+      app.seatsView.render();
+    });
   },
 
   polling: function() {
     console.log('ROUTE: Polling demo');
 
-    app.reservations = new app.Reservations();
-    app.reservations.fetch();
+    app.tobys = new app.Tobys();
+    app.tobyPoller = new app.Poller({
+      collection: app.tobys,
+      seconds: 5
+    });
+    app.tobyPoller.start();
 
     app.pollingView = new app.PollingView();
     app.pollingView.render();
