@@ -44,13 +44,13 @@ app.Router = Backbone.Router.extend({
     app.pollReservations = new app.Poller({
       collection: app.reservations,
       seconds: 5,
+      success: function() {
+        app.seatsView = new app.SeatsView({collection: app.reservations});
+        app.seatsView.render();
+      }
     });
-    // app.pollReservations.start();
 
-    // app.reservations.fetch().done(function() {
-    //   app.seatsView = new app.SeatsView({collection: app.reservations});
-    //   app.seatsView.render();
-    // });
+    app.pollReservations.start();
   },
 
   polling: function() {

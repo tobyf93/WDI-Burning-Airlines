@@ -4,7 +4,7 @@ app.Poller = function(options) {
   for (var option in options) {
     this[option] = options[option];
   }
-  
+
   // Check for valid object attributes
   if (typeof this.collection === 'undefined') {
     console.warn('Must specify a collection to poll.');
@@ -31,5 +31,8 @@ app.Poller.prototype.fetch = function() {
 
 app.Poller.prototype.onSuccess = function() {
   console.log('POLL: Fetched!  (next fetch in ' + app.currentPoller.seconds + ' seconds)');
+
+  app.currentPoller.success();
+
   setTimeout(app.currentPoller.fetch, app.currentPoller.seconds * 1000);
 };
