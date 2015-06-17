@@ -9,9 +9,6 @@ app.FlightView = Backbone.View.extend({
   },
 
   render: function( parentView ) {
-
-    // debugger;
-
     var flightViewTemplate = $('#flightViewTemplate').html();
     var flightViewHTML = _.template(flightViewTemplate);
 
@@ -33,12 +30,12 @@ app.FlightView = Backbone.View.extend({
     console.log( "Object is ", obj );
 
     var toAppend = this.$el.append( flightViewHTML( obj ) );
-    parentView.append(toAppend)
+    parentView.append(toAppend);
   },
 
 
   showSeatsView: function () {
-    app.router.navigate('planes/' + this.model.get('plane_id') + '/flights/' + this.model.get('id') + '/reservations', true);
+    app.router.navigate('planes/' + this.model.plane_id + '/flights/' + this.model.id + '/reservations', true);
   }
 
 });
