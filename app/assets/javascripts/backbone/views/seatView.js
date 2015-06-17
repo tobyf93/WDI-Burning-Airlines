@@ -35,12 +35,10 @@ app.SeatView = Backbone.View.extend({
 
     var url = 'planes/' + this.model.plane_id + '/flights/' + this.model.flight_id + '/reservations';
     $.post(url, {
-      reservation: {
-        row: this.model.row,
-        column: this.model.column,
-        flight_id: this.model.flight_id,
-        user_id: 9999
-      }
+      row: this.model.row,
+      column: this.model.column,
+      flight_id: this.model.flight_id,
+      user_id: 9999
     });
   }
 
