@@ -134,11 +134,8 @@ nav li {
     border-radius: 15px;
 }
 
-.list-group-item li {
-    max-width: 320px;
-    font-size:13px;
-    border-radius: 15px;
-}
+
+
 
 .modal-content {
     max-width: 300px;
@@ -148,7 +145,7 @@ nav li {
 }
 
 .button-container-bottom {
-    position: fixed;
+    position: absolute;
     bottom: 0;
 }
 
