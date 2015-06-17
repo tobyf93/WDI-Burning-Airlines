@@ -13,11 +13,10 @@ app.SeatView = Backbone.View.extend({
     var seatViewHTML = _.template(seatViewTemplate);
     $('.seatOuter', parentView).append(this.$el);
 
-    if ( this.model.user_id ) {
-      this.$el.addClass('HasBeenClicked');
-    }
     if (this.model.user_id === app.user_id) {
-      this.$el.css('opacity', 0.5);
+      this.$el.addClass('user-booking');
+    } else if ( this.model.user_id ) {
+      this.$el.addClass('unavailable');
     }
 
   },
@@ -30,14 +29,13 @@ app.SeatView = Backbone.View.extend({
     var dynamicRows = app.planes.get(this.model.plane_id).attributes.columns
     var numSelector = ( ( (ro - 1) * dynamicRows ) + (co - 1) );
     var $clicked = $('.seatOuter').children()[numSelector];
-    $($clicked).addClass('HasBeenClicked');
+    $($clicked).addClass('user-booking');
 
     var url = 'planes/' + this.model.plane_id + '/flights/' + this.model.flight_id + '/reservations';
     $.post(url, {
       row: this.model.row,
       column: this.model.column,
-      flight_id: this.model.flight_id,
-      user_id: 9999
+      flight_id: this.model.flight_id
     });
   }
 
