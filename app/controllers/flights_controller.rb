@@ -45,9 +45,6 @@ class FlightsController < ApplicationController
     rows = @flight.plane.rows
     columns = @flight.plane.columns
 
-    row = 1
-    column = 1
-
     for row in 1..rows
       for column in 1..columns
         @reservation = Reservation.new
