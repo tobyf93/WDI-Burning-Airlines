@@ -2,7 +2,7 @@ var app = app || {};
 
 app.SeatView = Backbone.View.extend({
   tagName: 'li',
-  className: "list-group-item",
+  className: "seatInner",
 
   events: {
     'click': 'makeReservation'
@@ -12,13 +12,20 @@ app.SeatView = Backbone.View.extend({
     var seatViewTemplate = $('#seatViewTemplate').html();
     var seatViewHTML = _.template(seatViewTemplate);
 
-    var toAppend = this.$el.append(seatViewHTML(this.model.attributes));
-    parentView.append(toAppend);
+    console.log(this.$el);
+    parentView.children().children().append(this.$el);
   },
 
   makeReservation: function () {
-    console.log('navigating');
-    app.router.navigate('planes/' + this.model.plane_id + '/flights/' + this.model.flight_id + '/reservations', true);
+    console.log('making res')
+
+    var url = 'planes/' + this.model.plane_id + '/flights/' + this.model.flight_id + '/reservations';
+    $.post(url, {
+      reservation: {
+        row: this.model.row,
+        column: this.model.column
+      }
+    });
   }
 
 });
