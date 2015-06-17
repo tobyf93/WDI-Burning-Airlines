@@ -8,12 +8,12 @@ app.Router = Backbone.Router.extend({
     'planes/:plane_id/flights': 'flights',
     'planes/:plane_id/flights/:id': 'flight',
     'planes/:plane_id/flights/:id/seats': 'seats',
-    'search': 'search',
+    'search/:origin/:destination': 'search',
     'polling': 'polling'
   },
 
   planes: function(id) {
-    app.planeListView = new app.PlaneListView({plane_id: id});
+    app.planeListView = new app.PlaneListView();
     app.planeListView.render();
 
     console.log('ROUTE: planes');
@@ -51,20 +51,31 @@ app.Router = Backbone.Router.extend({
     app.pollingView.render();
   },
 
-  search: function(plane_id) {
-    // app.flights 
+  search: function(origin, destination) {
+    // debugger;
+    //
+    // var origin = origin.val();
+    // var destination = destination.val();
+    // debugger;
 
+    var origin = origin;
+    var destination = destination;
 
-    // $('#search_flights_form').click(function () {
-      
-    // })
+    // debugger;
+    app.flights = new app.Flights();
+    app.flights.fetch().done(function() {
+      app.flights = app.flights.where({ 
+        origin: origin, 
+        destination: destination 
+      });
 
+      app.flightListView = new app.FlightListView();
+      app.flightListView.render();
+    });
+    // Need to search for the origin and destination.
+    // If the results match, render in the view a list of flights.
+    // else, print `There are no flights matching your query`.
 
-    // $('#search_for_flights_button').text
-
-    // Select the text from the users input
-    // And make a query to the db on 'destinations'
-    // render a new view
 
   }
 
