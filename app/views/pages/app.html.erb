@@ -75,10 +75,16 @@
 
 
 <script id="usersListViewTemplate" type="text/template">
-  <h3>Users Currently Onboard</h3>  
-  <ul id="users"></ul>
-  <div>
-    <h3>something</h3>
+  <div id="usersList">
+    <h3>Users Currently Onboard</h3>  
+    <ul id="users">
+      <li>Toby</li>
+      <li>Drew</li>
+      <li>Connie</li>
+      {[ _.each(users, function(user) { ]}
+        <li>{{user}}</li>
+      {[ }); ]}
+    </ul>
   </div>
 </script>
 
