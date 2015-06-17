@@ -40,8 +40,10 @@ app.Router = Backbone.Router.extend({
   reservations: function(plane_id, id) {
     console.log('ROUTE: flight(plane_id: ' + plane_id + ', id: ' + id + ', reservations)');
     app.reservations = new app.Reservations({plane_id: plane_id, flight_id: id});
+    console.log(app.reservations);
+
     app.reservations.fetch().done(function() {
-      app.seatsView = new app.SeatsView();
+      app.seatsView = new app.SeatsView({collection: app.reservations});
       app.seatsView.render();
     });
   },

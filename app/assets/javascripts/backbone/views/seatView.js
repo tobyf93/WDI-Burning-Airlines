@@ -13,12 +13,12 @@ app.SeatView = Backbone.View.extend({
     var seatViewHTML = _.template(seatViewTemplate);
 
     var toAppend = this.$el.append(seatViewHTML(this.model.attributes));
-    //console.log(this.model.attributes)
-    parentView.append(toAppend)
+    parentView.append(toAppend);
   },
 
   makeReservation: function () {
-    app.router.navigate('planes/' + this.model.get('plane_id') + '/flights/' + this.model.get('id') + '/reservations', true);
+    console.log('make reservation');
+    // app.router.navigate('planes/' + this.model.get('plane_id') + '/flights/' + this.model.get('id') + '/reservations', true);
   }
 
 });
