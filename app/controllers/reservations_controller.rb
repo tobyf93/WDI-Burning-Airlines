@@ -29,7 +29,8 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = Reservation.new(reservation_params)
+    @reservation = Reservation.find_by :row => params[:row], :column => params[:column]
+    @reservation.user_id = params[:user_id]
 
     respond_to do |format|
       if @reservation.save
