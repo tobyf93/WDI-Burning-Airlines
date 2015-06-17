@@ -11,15 +11,26 @@ app.SeatView = Backbone.View.extend({
   render: function( parentView ) {
     var seatViewTemplate = $('#seatViewTemplate').html();
     var seatViewHTML = _.template(seatViewTemplate);
-
     //console.log(this.$el);
     parentView.children().children().append(this.$el);
+
+    if ( this.model.user_id ) {
+      // var $thing = this.$el
+      // $($thing).addClass('HasBeenClicked');
+
+      this.$el.addClass('HasBeenClicked');
+    }
+
   },
 
   makeReservation: function () {
     // console.log('making res on: ');
-    // console.log(this);
-
+    console.log(this);
+    var co = this.model['column'];
+    var ro = this.model['row'];
+    var numSelector = ( ( (ro - 1) * 10 ) + (co - 1) );
+    var $clicked = $('.seatOuter').children()[numSelector];
+    $($clicked).addClass('HasBeenClicked');
 
     var url = 'planes/' + this.model.plane_id + '/flights/' + this.model.flight_id + '/reservations';
     $.post(url, {

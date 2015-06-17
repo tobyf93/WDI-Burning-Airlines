@@ -12,6 +12,9 @@ app.SeatsView = Backbone.View.extend({
       // Give reservation plane_id too
       reservation = reservation.toJSON();
       reservation.plane_id = view.collection.plane_id;
+      // console.log(reservation.user_id);
+
+      
 
       app.seatView = new app.SeatView({model: reservation});
       app.seatView.render( view.$el );
