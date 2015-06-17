@@ -9,7 +9,11 @@ app.UsersListView = Backbone.View.extend({
 
     var users = [];
     this.collection.each(function(reservation) {
-      users.push(reservation.get('user_id'));
+      var name = reservation.get('name');
+      
+      if (name) {
+        users.push(name);
+      }
     });
     users = _(users).uniq();
 
