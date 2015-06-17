@@ -14,10 +14,10 @@ app.SeatView = Backbone.View.extend({
     $('.seatOuter', parentView).append(this.$el);
 
     if ( this.model.user_id ) {
-      // var $thing = this.$el
-      // $($thing).addClass('HasBeenClicked');
-
       this.$el.addClass('HasBeenClicked');
+    }
+    if (this.model.user_id === app.user_id) {
+      this.$el.css('opacity', 0.5);
     }
 
   },
