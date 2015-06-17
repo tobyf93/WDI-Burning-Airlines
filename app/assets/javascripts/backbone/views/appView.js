@@ -13,7 +13,7 @@ app.AppView = Backbone.View.extend({
 
   search: function( event ) {
     event.preventDefault();
-    console.log("FORM RUN");
+    //console.log("FORM RUN");
 
     var search = $('#search').val();
     var origin = $("#origin").val();
