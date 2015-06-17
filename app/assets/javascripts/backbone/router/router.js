@@ -47,7 +47,7 @@ app.Router = Backbone.Router.extend({
 
     app.pollReservations = new app.Poller({
       collection: app.reservations,
-      seconds: 1,
+      seconds: 100000,
       success: function() {
         app.seatsView = new app.SeatsView({collection: app.reservations});
         app.seatsView.render();
