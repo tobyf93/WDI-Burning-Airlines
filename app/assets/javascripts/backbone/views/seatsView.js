@@ -12,7 +12,12 @@ app.SeatsView = Backbone.View.extend({
     var rows = 10;
     var columns = 10;
 
-    this.collection.each(function(reservation) {
+    var view = this;
+    view.collection.each(function(reservation) {
+      // Give reservation plane_id too
+      reservation = reservation.toJSON();
+      reservation.plane_id = view.collection.plane_id;
+
       app.seatView = new app.SeatView({model: reservation});
       app.seatView.render( view.$el );
     });
