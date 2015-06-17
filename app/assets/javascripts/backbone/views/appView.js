@@ -11,8 +11,13 @@ app.AppView = Backbone.View.extend({
     this.$el.html(appTemplate);
   },
 
-  search: function() {
+  search: function( event ) {
+    event.preventDefault();
+    console.log("FORM RUN");
+
     var search = $('#search').val();
-    app.router.navigate('search/' + search, true);
+    var origin = $("#origin").val();
+    var destination = $("#destination").val();
+    app.router.navigate('search/' + origin + "/" + destination, true);
   }
 });
