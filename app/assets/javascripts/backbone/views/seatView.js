@@ -11,8 +11,7 @@ app.SeatView = Backbone.View.extend({
   render: function( parentView ) {
     var seatViewTemplate = $('#seatViewTemplate').html();
     var seatViewHTML = _.template(seatViewTemplate);
-    //console.log(this.$el);
-    parentView.children().children().append(this.$el);
+    $('.seatOuter', parentView).append(this.$el);
 
     if ( this.model.user_id ) {
       // var $thing = this.$el
