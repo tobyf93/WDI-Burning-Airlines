@@ -7,7 +7,7 @@ app.Router = Backbone.Router.extend({
     'planes/:id': 'plane',
     'planes/:plane_id/flights': 'flights',
     'planes/:plane_id/flights/:id': 'flight',
-    'planes/:plane_id/flights/:id/seats': 'seats',
+    'planes/:plane_id/flights/:id/reservations': 'reservations',
     'search': 'search',
     'polling': 'polling'
   },
@@ -37,8 +37,13 @@ app.Router = Backbone.Router.extend({
     console.log('ROUTE: flight (plane_id: '+ plane_id + ', id: ' + id + ')');
   },
 
-  seats: function(plane_id, id) {
-    console.log('ROUTE: flight(plane_id: ' + plane_id + ', id: ' + id + ', seats)');
+  reservations: function(plane_id, id) {
+    console.log('ROUTE: flight(plane_id: ' + plane_id + ', id: ' + id + ', reservations)');
+    app.reservations = new app.Reservations({plane_id: plane_id, flight_id: id});
+    app.reservations.fetch().done(function() {
+      app.seatsView = new app.SeatsView();
+      app.seatsView.render();
+    });
   },
 
   polling: function() {
