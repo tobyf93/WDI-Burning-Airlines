@@ -3,8 +3,7 @@ class SessionController < ApplicationController
   end
 
   def create
-    #raise params.inspect
-    user = User.find_by :name => params[:username]
+    user = User.find_by :username => params[:username]
     if user.present? && user.authenticate(params[:password]) #present is rails, any is ruby. Any is only for collections, present works on things like strings
       session[:user] = user.id #because otherwise all their data is being stored in the server while they're logged in, possibly bogging everything down as fuckkkkkk
 
