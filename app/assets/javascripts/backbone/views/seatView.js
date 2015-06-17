@@ -17,8 +17,14 @@ app.SeatView = Backbone.View.extend({
   },
 
   makeReservation: function () {
-    console.log('make reservation');
-    // app.router.navigate('planes/' + this.model.get('plane_id') + '/flights/' + this.model.get('id') + '/reservations', true);
+
+    var url = 'planes/' + this.model.plane_id + '/flights/' + this.model.flight_id + '/reservations';
+    $.post(url, {
+      reservation: {
+        row: this.model.row,
+        column: this.model.column
+      }
+    });
   }
 
 });
