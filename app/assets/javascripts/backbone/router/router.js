@@ -44,8 +44,8 @@ app.Router = Backbone.Router.extend({
   polling: function() {
     console.log('ROUTE: Polling demo');
 
-    app.reservations = new app.Reservations();
-    app.reservations.fetch();
+    app.tobys = new app.Tobys();
+    app.tobys.startLongPolling();
 
     app.pollingView = new app.PollingView();
     app.pollingView.render();
