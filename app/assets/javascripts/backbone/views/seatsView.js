@@ -9,8 +9,6 @@ app.SeatsView = Backbone.View.extend({
 
     // console.log(this.collection);
     var view = this;
-    var rows = 10;
-    var columns = 10;
 
     this.collection.each(function(reservation) {
       app.seatView = new app.SeatView({model: reservation});

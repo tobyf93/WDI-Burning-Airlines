@@ -12,8 +12,8 @@ app.SeatView = Backbone.View.extend({
     var seatViewTemplate = $('#seatViewTemplate').html();
     var seatViewHTML = _.template(seatViewTemplate);
 
-    var toAppend = this.$el.append(seatViewHTML(this.model.attributes));
-    parentView.append(toAppend);
+    //var toAppend = this.$el.append(seatViewHTML(this.model.attributes));
+    parentView.children().children().append(seatViewHTML(this.model.attributes));
   },
 
   makeReservation: function () {
