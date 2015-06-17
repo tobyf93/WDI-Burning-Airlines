@@ -40,6 +40,8 @@ class FlightsController < ApplicationController
         format.html { render :new }
         format.json { render json: @flight.errors, status: :unprocessable_entity }
       end
+
+      
     end
   end
 
