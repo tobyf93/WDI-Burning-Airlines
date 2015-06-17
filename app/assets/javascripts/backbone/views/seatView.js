@@ -12,12 +12,14 @@ app.SeatView = Backbone.View.extend({
     var seatViewTemplate = $('#seatViewTemplate').html();
     var seatViewHTML = _.template(seatViewTemplate);
 
-    console.log(this.$el);
+    //console.log(this.$el);
     parentView.children().children().append(this.$el);
   },
 
   makeReservation: function () {
-    console.log('making res')
+    // console.log('making res on: ');
+    // console.log(this);
+
 
     var url = 'planes/' + this.model.plane_id + '/flights/' + this.model.flight_id + '/reservations';
     $.post(url, {
