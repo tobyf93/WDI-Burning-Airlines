@@ -1,18 +1,16 @@
 var app = app || {};
 
 app.SeatsView = Backbone.View.extend({
-
   el: '#view',
 
   render: function() {
     var seatsViewTemplate = $('#seatsViewTemplate').html();
     this.$el.html(seatsViewTemplate);
-    //console.log(id)
 
+    // console.log(this.collection);
     var view = this;
     var rows = 10;
     var columns = 10;
-
 
     //console.log(app.reservations);
 
@@ -40,11 +38,6 @@ app.SeatsView = Backbone.View.extend({
       }
     }
 
-    // app.reservations.each(function(reservation) {
-    //   app.seatView = new app.SeatView({model: reservation, parentView: view.$el});
-    //   console.log(reservation.attributes['row'])
-    //   app.seatView.render( view.$el );
-    // });
   }
 
 });

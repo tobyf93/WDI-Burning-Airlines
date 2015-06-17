@@ -9,7 +9,10 @@ app.PlaneListView = Backbone.View.extend({
 
     var view = this;
     app.planes.each(function(plane) {
-      app.planeView = new app.PlaneView({model: plane, parentView: view.$el});
+      app.planeView = new app.PlaneView({
+        model: plane, 
+        parentView: view.$el
+      });
       app.planeView.render( view.$el );
     });
   }

@@ -7,13 +7,13 @@ app.Router = Backbone.Router.extend({
     'planes/:id': 'plane',
     'planes/:plane_id/flights': 'flights',
     'planes/:plane_id/flights/:id': 'flight',
+    'search/:origin/:destination': 'search',
     'planes/:plane_id/flights/:id/reservations': 'reservations',
-    'search': 'search',
     'polling': 'polling'
   },
 
   planes: function(id) {
-    app.planeListView = new app.PlaneListView({plane_id: id});
+    app.planeListView = new app.PlaneListView();
     app.planeListView.render();
 
     console.log('ROUTE: planes');
@@ -40,8 +40,10 @@ app.Router = Backbone.Router.extend({
   reservations: function(plane_id, id) {
     console.log('ROUTE: flight(plane_id: ' + plane_id + ', id: ' + id + ', reservations)');
     app.reservations = new app.Reservations({plane_id: plane_id, flight_id: id});
+    console.log(app.reservations);
+
     app.reservations.fetch().done(function() {
-      app.seatsView = new app.SeatsView();
+      app.seatsView = new app.SeatsView({collection: app.reservations});
       app.seatsView.render();
     });
   },
@@ -49,27 +51,42 @@ app.Router = Backbone.Router.extend({
   polling: function() {
     console.log('ROUTE: Polling demo');
 
-    app.reservations = new app.Reservations();
-    app.reservations.fetch();
+    app.tobys = new app.Tobys();
+    app.tobyPoller = new app.Poller({
+      collection: app.tobys,
+      seconds: 5
+    });
+    app.tobyPoller.start();
 
     app.pollingView = new app.PollingView();
     app.pollingView.render();
   },
 
-  search: function(plane_id) {
-    // app.flights 
+  search: function(origin, destination) {
+    // debugger;
+    //
+    // var origin = origin.val();
+    // var destination = destination.val();
+    // debugger;
 
+    var origin = origin;
+    var destination = destination;
 
-    // $('#search_flights_form').click(function () {
-      
-    // })
+    // debugger;
+    app.flights = new app.Flights();
+    app.flights.fetch().done(function() {
+      app.flights = app.flights.where({ 
+        origin: origin, 
+        destination: destination 
+      });
 
+      app.flightListView = new app.FlightListView();
+      app.flightListView.render();
+    });
+    // Need to search for the origin and destination.
+    // If the results match, render in the view a list of flights.
+    // else, print `There are no flights matching your query`.
 
-    // $('#search_for_flights_button').text
-
-    // Select the text from the users input
-    // And make a query to the db on 'destinations'
-    // render a new view
 
   }
 
