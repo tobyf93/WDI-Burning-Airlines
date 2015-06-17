@@ -1,3 +1,6 @@
+<!-- Hack to get user_id into JS environment -->
+<script>app.user_id = <%= @current_user? @current_user.id : 'undefined' %>;</script>
+
 
 <!-- Main App. -->
 <div id="mainApp" class="container"></div>
@@ -72,4 +75,22 @@
 <script id="seatViewTemplate" type="text/template">
   <li class="seatInner"></li>
 </script>
+
+
+<script id="usersListViewTemplate" type="text/template">
+  <div id="usersList">
+    <h3>Users Currently Onboard</h3>  
+    <ul id="users">
+      {[ _.each(users, function(user) { ]}
+        <li>{{user}}</li>
+      {[ }); ]}
+    </ul>
+  </div>
+</script>
+
+
+
+
+
+
 

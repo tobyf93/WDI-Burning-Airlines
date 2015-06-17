@@ -29,8 +29,11 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = Reservation.find_by :row => params[:row], :column => params[:column]
-    @reservation.user_id = params[:user_id]
+    @reservation = Reservation.find_by :flight_id => params[:flight_id], :row => params[:row], :column => params[:column]
+
+    if @current_user.present? && !@reservation.user_id
+      @reservation.user_id = @current_user.id
+    end
 
     respond_to do |format|
       if @reservation.save
